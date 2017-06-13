@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&^x^w=1^3_n8!d6k5$p!t5g#^7(n+=o6s*u(bsqd$q-e0(bv0('
+SECRET_KEY = '8otgyq8$t-(bt1)y2d&2z$^-m4n)+1481vh42g*hwuj3x6ejck'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'plate_plotter_app.apps.PlatePlotterAppConfig',
+    'plot_app.apps.PlotAppConfig',
 ]
 
 MIDDLEWARE = [
