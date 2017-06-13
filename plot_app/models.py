@@ -10,8 +10,8 @@ MEAL_TAGS_CHOICES = (
     ('B', 'Breakfast'),
     ('L', 'Lunch'),
     ('D', 'Dinner'),
-    ('Sn', 'Snack'),
-    ('Sup', 'Supplement'),
+    ('SN', 'Snack'),
+    ('SUP', 'Supplement'),
     ('C', 'Cheat'),
     ('T', 'Tasty'),
     ('Y', 'Yuck!'),
@@ -33,8 +33,8 @@ class Meal(models.Model):
     name = models.CharField(max_length=DEFAULT_LENGTH)
     calories = models.PositiveSmallIntegerField(null=True)
     date = models.DateField(auto_now_add=True)
-    photo = models.ImageField(null=True)  # For now can be empty
-    tags = models.CharField(choices=MEAL_TAGS_CHOICES, default="DEF")
+    photo = models.ImageField(null=True, blank=True)  # For now can be empty
+    tags = models.CharField(choices=MEAL_TAGS_CHOICES, default="DEF", max_length=DEFAULT_LENGTH)
 
     def __str__(self):
         return self.name
