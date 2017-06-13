@@ -30,11 +30,11 @@ class Team(models.Model):
 
 # Upon making photo create the Meal Entry
 class Meal(models.Model):
-    name = models.CharField(max_length=DEFAULT_LENGTH)
+    user = models.ForeignKey(User)
     calories = models.PositiveSmallIntegerField(null=True)
     date = models.DateField(auto_now_add=True)
     photo = models.ImageField(null=True, blank=True)  # For now can be empty
     tags = models.CharField(choices=MEAL_TAGS_CHOICES, default="DEF", max_length=DEFAULT_LENGTH)
 
     def __str__(self):
-        return self.name
+        return '{0} - {1}'.format(self.user.username, self.date)

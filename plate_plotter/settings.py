@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'plot_app.apps.PlotAppConfig',
+    'registration',
 ]
 
 MIDDLEWARE = [
