@@ -57,7 +57,7 @@ local_settings.py
 db.sqlite3
 *.key
 *.sqlite3
-migrations
+migrations/
 
 
 # Flask stuff:
