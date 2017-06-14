@@ -26,7 +26,7 @@ class Team(models.Model):
     user = models.ManyToManyField(User)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
 # Upon making photo create the Meal Entry
 class Meal(models.Model):
@@ -34,7 +34,7 @@ class Meal(models.Model):
     calories = models.PositiveSmallIntegerField(null=True)
     date = models.DateField(auto_now_add=True)
     photo = models.ImageField(null=True, blank=True)  # For now can be empty
-    tags = models.CharField(choices=MEAL_TAGS_CHOICES, default="DEF", max_length=DEFAULT_LENGTH)
+    tag = models.CharField(choices=MEAL_TAGS_CHOICES, default="DEF", max_length=DEFAULT_LENGTH)
 
     def __str__(self):
         return '{0} - {1}'.format(self.user.username, self.date)
