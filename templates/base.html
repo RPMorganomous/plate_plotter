@@ -5,9 +5,27 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+<header>
+    <ul>
+        <li>
+            <a href="{% url 'index' %}">Home</a>
+        </li>
+        {% if user.is_authenticated %}
+            <li>
+                <a href="{% url 'auth_logout' %}">Log Out</a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{% url 'auth_login' %}">Log In</a>
+            </li>
+            <li>
+                <a href="{% url 'registration_register' %}">Register</a>
+            </li>
+        {% endif %}
+    </ul>
+</header>
 {% block content %}
 
 {% endblock %}
-
 </body>
 </html>
