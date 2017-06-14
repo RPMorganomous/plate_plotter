@@ -6,13 +6,14 @@ django.setup()
 
 import random
 from django.contrib.auth.models import User
+from plot_app.models import Team
 from faker import Faker
 
 fakegen = Faker()
 teams = ['A-Team','Super Team','The Losers','Starve Or Die','Suck-It-Up']
 
 def add_team():
-    t = Team.objects.get_or_create(team_name=random.choice(teams))[0]
+    t = Team.objects.get_or_create(name=random.choice(teams))[0]
     t.save()
     return t
 
@@ -28,10 +29,9 @@ def populate(N=5):
         fake_user = fakegen.user_name(*args, **kwargs)
 
         #new user entry
-        user = User.objects.get_or_create(first_name=fake_first_name,
+        user = User.objects.get_or_create(first_name = fake_first_name,
                                           last_name = fake_last_name,
-                                          username = fake_name,
-                                          email=fake_email,
+                                          email = fake_email,
                                           username = fake_user)[0],
 
         team_rec = Team.objects.get_or_create(name=team,user=fake_user)
