@@ -6,7 +6,7 @@ django.setup()
 
 import random
 from django.contrib.auth.models import User
-from plot_app.models import Team
+from plot_app.models import Team, Meal
 from faker import Faker
 
 fakegen = Faker()
@@ -19,7 +19,7 @@ def add_team():
 
 def populate(N=5):
 
-    team = add_team()
+    team_pick = add_team()
 
     for entry in range(N):
         fake_name = fakegen.name().split()
@@ -34,7 +34,7 @@ def populate(N=5):
                                           email = fake_email,
                                           username = fake_user)[0],
 
-        team_rec = Team.objects.get_or_create(name=team,user=fake_user)
+        team_rec = Team.objects.get_or_create(name=team_pick,user=fake_user)
 
         i = 0
         while (i < 20):
